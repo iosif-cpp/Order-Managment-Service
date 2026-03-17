@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Не компилируем исходники подпроектов ещё раз, только ссылаемся на сборки -->
+  <ItemGroup>
+    <Compile Remove="CustomerService.Domain\**\*.cs" />
+    <Compile Remove="CustomerService.Application\**\*.cs" />
+    <Compile Remove="CustomerService.Infrastructure\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=".\CustomerService.Domain\CustomerService.Domain.csproj" />
+    <ProjectReference Include=".\CustomerService.Application\CustomerService.Application.csproj" />
+    <ProjectReference Include=".\CustomerService.Infrastructure\CustomerService.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
