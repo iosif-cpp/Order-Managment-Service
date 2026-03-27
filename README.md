@@ -36,6 +36,7 @@
 - **FluentValidation** (валидация команд/запросов)
 - **JWT Bearer Authentication** (авторизация в сервисах)
 - **Docker Compose** (Kafka/Zookeeper и Postgres-контейнеры)
+- **Unit, Moq** (Юнит тестирование)
 
 # События в Kafka
 
